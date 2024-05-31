@@ -1,0 +1,13 @@
+.menu .active {
+  background-color: transparent !important;
+  color: #e87726 !important;
+}
+.menu a:hover,
+.navbar-end a:hover {
+  background-color: transparent !important;
+  color: #e87726 !important;
+}
+
+.dropdown-content li {
+  margin-bottom: 10px;
+}

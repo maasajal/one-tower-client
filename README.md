@@ -1,8 +1,49 @@
-# React + Vite
+# One Tower
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [Private Client side Repo Link](https://github.com/programming-hero-web-course1/b9a12-client-side-maasajal)
 
-Currently, two official plugins are available:
+## [Private Server side Repo Link](https://github.com/programming-hero-web-course1/b9a12-server-side-maasajal)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Client Site Link: [https://the-flat-lister.web.app](https://the-flat-lister.web.app)
+
+## Live Server Site Link: [https://the-flat-lister.vercel.app](https://the-flat-lister.vercel.app)
+
+## Assignment_ID:
+
+- assignment12_category_0012
+
+## About the project
+
+Short description about One Tower here...
+
+### Features and Packages
+
+- Swiper Slider
+- Sweet Alert Toaster
+- React Hook Form
+- User register using Firebase auth
+- User login using email and password
+- Login with Google
+- Login with GitHub
+- Mongodb database
+- Node.js server
+- Methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
+- View details for login user
+- Rent request for login user
+- Payment option for member user
+- JsonWebToken (jwt)
+
+### Challenge Requirements
+
+### Admin role
+
+- Email: `one@tower.com`
+- Password: `one$1Tower`
+
+### Color code
+
+- `#3d5cab`
+- `#e87726`
+- `#d58c59`
+- `#c3a18c`
+- `#b1b6c0`
