@@ -1,7 +1,12 @@
+import Banner from "./Banner/Banner";
+
 const Home = () => {
   return (
     <>
-      {/* <h2 className="text-5xl font-bold">One Tower</h2> */}
+      <Banner />
+      <div className="max-w-6xl mx-auto px-2 md:px-4 py-12">
+        
+      </div>
     </>
   );
 };

@@ -4,9 +4,9 @@
 
 ## [Private Server side Repo Link](https://github.com/programming-hero-web-course1/b9a12-server-side-maasajal)
 
-## Live Client Site Link: [https://the-flat-lister.web.app](https://the-flat-lister.web.app)
+## Live Client Site Link: [https://one-tower.web.app](https://one-tower.web.app)
 
-## Live Server Site Link: [https://the-flat-lister.vercel.app](https://the-flat-lister.vercel.app)
+## Live Server Site Link: [https://one-tower.vercel.app](https://one-tower.vercel.app)
 
 ## Assignment_ID:
 
