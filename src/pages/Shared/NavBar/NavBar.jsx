@@ -2,8 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/oneTower.png";
 import userPhoto from "../../../../public/favicon.png";
 import "./NavBar.css";
+import useAuth from "../../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
+  const { user, loading, logOut } = useAuth();
   const navLinks = (
     <>
       <li key="home" className="hover:text-[#e87726]">
@@ -20,6 +23,19 @@ const NavBar = () => {
       </li>
     </>
   );
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          title: "Signed Out successfully!",
+          icon: "success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <>
       <header className="navbar py-4 md:px-14 bg-[#3d5cab80] text-white font-extrabold fixed z-20">
@@ -56,41 +72,57 @@ const NavBar = () => {
           <ul className="menu menu-horizontal hidden lg:flex uppercase">
             {navLinks}
           </ul>
-          <div className="dropdown dropdown-end mr-1 tooltip tooltip-bottom tooltip-primary z-10">
+          {user ? (
             <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
+              data-tip={user?.displayName ? user.displayName : user.email}
+              className="dropdown dropdown-end mr-1 tooltip tooltip-bottom tooltip-primary z-10"
             >
-              <div className="w-10 rounded-full">
-                <img src={userPhoto} alt="Logged user photo" />
-              </div>
+              {!loading ? (
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      src={user?.photoURL ? user.photoURL : userPhoto}
+                      alt="Logged user photo"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <span className="loading loading-infinity loading-lg"></span>
+              )}
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#b1b6c0] text-black rounded-box w-52 uppercase"
+              >
+                <li>
+                  <p className="py-2">
+                    {user?.displayName ? user.displayName : user.email}
+                  </p>
+                </li>
+                <li>
+                  <NavLink to="/dashboard" className="py-3 hover:text-white">
+                    Dashboard
+                  </NavLink>
+                </li>
+                <Link
+                  onClick={handleSignOut}
+                  className="btn btn-outline px-3 font-extrabold"
+                >
+                  Sign Out
+                </Link>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-[#b1b6c0] text-black rounded-box w-52 uppercase"
+          ) : (
+            <Link
+              to="/login"
+              className="btn btn-outline px-3 text-[#e87726] uppercase font-extrabold"
             >
-              <li>
-                <NavLink to="/userName" className="py-3 hover:text-white">
-                  User Name
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard" className="py-3 hover:text-white">
-                  Dashboard
-                </NavLink>
-              </li>
-              <Link className="btn btn-outline px-3 font-extrabold">
-                Sign Out
-              </Link>
-            </ul>
-          </div>
-          <Link
-            to="/login"
-            className="btn btn-outline px-3 text-[#e87726] uppercase font-extrabold"
-          >
-            Login
-          </Link>
+              Login
+            </Link>
+          )}
         </div>
       </header>
     </>
