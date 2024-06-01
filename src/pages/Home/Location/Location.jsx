@@ -1,0 +1,82 @@
+import SectionTitle from "../../../components/SectionTitle";
+import GoogleMapReact from "google-map-react";
+import OneTowerMap from "./OneTowerMap";
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
+const Location = () => {
+  const defaultProps = {
+    center: {
+      lat: 10.99835602,
+      lng: 77.01502627,
+    },
+    zoom: 11,
+  };
+
+  return (
+    <div className="py-10">
+      <SectionTitle
+        title="Find Your Way to One Tower"
+        subTitle="Want to Visit our location?"
+      />
+      <p className="max-w-3xl mx-auto text-center">
+        Prime Location One Tower is strategically located in the heart of the
+        city, offering easy access to major attractions, business districts, and
+        recreational areas. Our prime location ensures that everything you need
+        is just a short distance away, making your daily commute and weekend
+        adventures a breeze.
+      </p>
+      <div className="my-10 flex items-center">
+        <div className="bg-[#3d5cab] px-10 h-[500px] pt-10 text-white space-y-5">
+          <h3 className="text-3xl">Address:</h3>
+          <address>Pellervonkatu 9 / Joukahaisenkatu 5, 33540 TAMPERE</address>
+          <h3 className="text-3xl">Distances</h3>
+          <div className="flex justify-between gap-5">
+            <p>Tampere university central campus</p>
+            <p>1.6 km</p>
+          </div>
+          <div className="flex justify-between gap-5">
+            <p>Tampere university Hervanta campus </p>
+            <p>7.2 km</p>
+          </div>
+          <div className="flex justify-between gap-5">
+            <p>TAMK (Teiskontie)</p>
+            <p>1.9 km</p>
+          </div>
+          <div className="flex justify-between gap-5">
+            <p>Nearest bus stop</p>
+            <p>200 m</p>
+          </div>
+          <div className="flex justify-between gap-5">
+            <p>Nearest tram stop</p>
+            <p>200 m</p>
+          </div>
+          <div className="flex justify-between gap-5">
+            <p>Nearest grocery store</p>
+            <p>200 m</p>
+          </div>
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1904.5505097186092!2d23.850166113281777!3d61.48735567562914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468edf7fd41c034b%3A0xb2bbf8c3f9179718!2sResiinankatu%2C%2033560%20Tampere!5e0!3m2!1sen!2sfi!4v1717234874232!5m2!1sen!2sfi"
+          className="flex-1 h-[500px]"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      {/* <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+        <OneTowerMap />
+      </div> */}
+      {/* <div style={{ height: "100vh", width: "100%" }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: "" }}
+          defaultCenter={defaultProps.center}
+          defaultZoom={defaultProps.zoom}
+        >
+          <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" />
+        </GoogleMapReact>
+      </div> */}
+    </div>
+  );
+};
+export default Location;

@@ -7,7 +7,7 @@ const Footer = () => {
           <div className="bg-[#d58c59] py-14 flex-1">
             <h6 className="text-2xl font-semibold mb-5">Location</h6>
             <address className="leading-8">
-              KotiKatu 1, Tampere, Finland
+              Pellervonkatu 9, 33540 Tampere, Finland
             </address>
           </div>
           <div className="bg-[#c3a18c] py-14 flex-1">
