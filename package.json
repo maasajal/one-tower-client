@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.40.0",
+    "axios": "^1.7.2",
     "google-map-react": "^2.2.1",
     "leaflet": "^1.9.4",
     "localforage": "^1.10.0",
