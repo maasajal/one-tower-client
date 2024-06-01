@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 const Dashboard = () => {
   return (
     <div className="flex">
-      <div className="w-64 min-h-screen px-8 pt-12 bg-[#3d5cab] text-white space-y-8">
+      <div className="w-64 min-h-screen px-8 pt-12 bg-[#3d5cab] text-white space-y-8 -ml-60 md:ml-0 hover:ml-0 md:hover:ml-0">
         <img src={logo} alt="company logo" />
         <ul className="uppercase space-y-4">
           <li>
