@@ -19,17 +19,17 @@ const SocialLogin = () => {
         name: user?.displayName,
         email: user?.email,
       };
-      const { data } = await axiosPublic.post("/users", userInfo);
-      if (data.insertedId) {
-        Swal.fire({
-          position: "top-end",
-          title: "Success!",
-          text: `Welcome ${user.displayName ? user.displayName : user.email}`,
-          icon: "success",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
+      // const { data } = await axiosPublic.post("/users", userInfo);
+      // if (data.insertedId) {
+      //   Swal.fire({
+      //     position: "top-end",
+      //     title: "Success!",
+      //     text: `Welcome ${user.displayName ? user.displayName : user.email}`,
+      //     icon: "success",
+      //     showConfirmButton: false,
+      //     timer: 1500,
+      //   });
+      // }
       navigate(from, { replace: true });
     } catch (error) {
       console.error(error);

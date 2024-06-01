@@ -27,7 +27,6 @@ const Apartment = () => {
     { length: Math.ceil(apartment.length / itemsPerPage) },
     (v, i) => apartment.slice(i * itemsPerPage, i * itemsPerPage + itemsPerPage)
   );
-  console.log(pages);
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
