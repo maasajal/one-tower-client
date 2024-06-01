@@ -1,0 +1,40 @@
+#apartment .swiper-button-prev,
+#apartment .swiper-button-next {
+  top: auto;
+  bottom: 0;
+  background-color: #3d5cab;
+  color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+#apartment .swiper-button-prev {
+  left: 25%;
+}
+#apartment .swiper-button-next {
+  right: 25%;
+}
+
+#apartment .swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: #000;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#apartment .swiper-pagination-bullet-active {
+  color: #fff;
+  background: #3d5cab;
+}
+
+#apartment .carousel .thumb {
+  width: 30px !important;
+}
+.carousel .control-dots {
+  display: none;
+}
