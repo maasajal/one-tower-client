@@ -8,8 +8,9 @@ import MyProfile from "../pages/Dashboard/MyProfile";
 import Dashboard from "../layouts/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import Announcements from "../pages/Dashboard/Announcements";
-import Payment from "../pages/Dashboard/Payment/Payment";
+import MakePayment from "../pages/Dashboard/Payment/MakePayment";
 import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Announcements />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/makePayment",
+        element: (
+          <PrivateRoute>
+            <MakePayment />
           </PrivateRoute>
         ),
       },

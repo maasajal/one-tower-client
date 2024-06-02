@@ -103,7 +103,10 @@ const NavBar = () => {
                   </p>
                 </li>
                 <li>
-                  <NavLink to="/dashboard" className="py-3 hover:text-white">
+                  <NavLink
+                    to="/dashboard/myProfile"
+                    className="py-3 hover:text-white"
+                  >
                     Dashboard
                   </NavLink>
                 </li>

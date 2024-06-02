@@ -1,6 +1,10 @@
+import { useLocation } from "react-router-dom";
 import SectionTitle from "../../../components/SectionTitle";
 
 const Payment = () => {
+  const location = useLocation();
+  const { rent, month } = location.state || {};
+  console.log(rent, month);
   return (
     <>
       <SectionTitle title="Payment" subTitle="Pay your rent now" />
