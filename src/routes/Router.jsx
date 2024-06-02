@@ -4,10 +4,10 @@ import Home from "../pages/Home/Home";
 import Apartment from "../pages/Apartment/Apartment";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
-import MyProfile from "../pages/Dashboard/Users/MyProfile";
+import MyProfile from "../pages/Dashboard/MyProfile";
 import Dashboard from "../layouts/Dashboard";
 import PrivateRoute from "./PrivateRoute";
-import Announcements from "../pages/Dashboard/Users/Announcements";
+import Announcements from "../pages/Dashboard/Announcements";
 
 const router = createBrowserRouter([
   {

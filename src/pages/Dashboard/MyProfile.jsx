@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import SectionTitle from "../../../components/SectionTitle";
-import useAuth from "../../../hooks/useAuth";
+import SectionTitle from "../../components/SectionTitle";
+import useAuth from "../../hooks/useAuth";
 
 const MyProfile = () => {
   const { user } = useAuth();
