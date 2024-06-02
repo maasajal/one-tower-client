@@ -2,34 +2,50 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAgreement from "../../hooks/useAgreement";
 
 const ApartmentCard = ({ room }) => {
-  const { image, block_name, floor_no, apartment_no, rent } = room;
+  const { _id, image, block_name, floor_no, apartment_no, rent } = room;
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const location = useLocation();
   const navigate = useNavigate();
+  const [agreement, refetch] = useAgreement();
 
   const handleAgreement = async () => {
     if (user && user.email) {
       const agreementInfo = {
         user_name: user.displayName,
         user_email: user.email,
+        roomId: _id,
+        image,
         floor_no,
         block_name,
         apartment_no,
         rent,
         status: "pending",
       };
-      const { data } = await axiosSecure.post("/agreements", agreementInfo);
-      if (data.insertedId) {
+      if (agreement._id) {
         Swal.fire({
           position: "top-end",
-          icon: "success",
-          title: `Rent request send to the owner!`,
+          icon: "warning",
+          title: "Your cannot rent 2 apartment at a time!",
           showConfirmButton: false,
           timer: 1500,
         });
+        return;
+      } else {
+        const { data } = await axiosSecure.post("/agreements", agreementInfo);
+        if (data.insertedId) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `Rent request send to the owner!`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          refetch();
+        }
       }
     } else {
       Swal.fire({

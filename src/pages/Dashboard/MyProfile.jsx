@@ -5,8 +5,9 @@ import useAgreement from "../../hooks/useAgreement";
 
 const MyProfile = () => {
   const { user } = useAuth();
-  const [agreement] = useAgreement();
+  const [agreement, refetch] = useAgreement();
   const {
+    image,
     floor_no,
     block_name,
     apartment_no,
@@ -26,22 +27,49 @@ const MyProfile = () => {
       </div>
       <div>
         <div className="flex flex-col md:flex-row items-center gap-10 bg-[#d58c59] text-white shadow-xl">
-          <figure>
-            <img src="" alt="Apartment room: none" />
-          </figure>
-          <div className="card-body">
+          <img
+            src={
+              status === "pending" || agreement.length === 0 ? "none" : image
+            }
+            alt="Apartment room: none"
+            className="w-1/3"
+          />
+          <div className="flex-1">
             <h3 className="text-2xl">
               Agreement accept date:{" "}
-              {status === "pending" ? "none" : agreement_accept_date}
+              {status === "pending" || agreement.length === 0
+                ? "none"
+                : agreement_accept_date}
             </h3>
             <h2 className="card-title">
-              Block: {status === "pending" ? "none" : block_name}
+              Block:{" "}
+              {status === "pending" || agreement.length === 0
+                ? "none"
+                : block_name}
             </h2>
-            <p>Floor No: {status === "pending" ? "none" : floor_no}</p>
-            <p>Apartment No: {status === "pending" ? "none" : apartment_no}</p>
+            <p>
+              Floor No:{" "}
+              {status === "pending" || agreement.length === 0
+                ? "none"
+                : floor_no}
+            </p>
+            <p>
+              Apartment No:{" "}
+              {status === "pending" || agreement.length === 0
+                ? "none"
+                : apartment_no}
+            </p>
             <div className="card-actions justify-between items-center">
-              <div>Rent: {status === "pending" ? "none" : rent} </div>
-              <div className="bg-[#3d5cab] p-2">Status: {status} </div>
+              <div>
+                Rent:{" "}
+                {status === "pending" || agreement.length === 0 ? "none" : rent}{" "}
+              </div>
+              <div className="bg-[#3d5cab] p-2">
+                Status:{" "}
+                {status === "pending" || agreement.length === 0
+                  ? "none"
+                  : status}
+              </div>
             </div>
           </div>
         </div>

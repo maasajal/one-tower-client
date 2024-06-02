@@ -5,13 +5,13 @@ import useAuth from "./useAuth";
 const useAgreement = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const { data: agreement = [] } = useQuery({
+  const { data: agreement = [], refetch } = useQuery({
     queryKey: ["agreements", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/agreements/${user.email}`);
       return res.data;
     },
   });
-  return [agreement];
+  return [agreement, refetch];
 };
 export default useAgreement;
