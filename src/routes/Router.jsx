@@ -8,6 +8,8 @@ import MyProfile from "../pages/Dashboard/MyProfile";
 import Dashboard from "../layouts/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import Announcements from "../pages/Dashboard/Announcements";
+import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,22 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Announcements />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/payment",
+        element: (
+          <PrivateRoute>
+            <Payment />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/paymentHistory",
+        element: (
+          <PrivateRoute>
+            <PaymentHistory />
           </PrivateRoute>
         ),
       },
