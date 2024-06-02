@@ -19,6 +19,15 @@ const Dashboard = () => {
             <NavLink to="/dashboard/announcements">Announcements</NavLink>
           </li>
         </ul>
+        <hr />
+        <ul className="menu uppercase space-y-4">
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/apartment">Apartment</NavLink>
+          </li>
+        </ul>
       </div>
       <div className="flex-1 py-20 px-10 bg-[#F6F6F6]">
         <Outlet />

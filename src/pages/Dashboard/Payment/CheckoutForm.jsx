@@ -69,6 +69,24 @@ const CheckoutForm = ({ rent, month }) => {
           timer: 1500,
         });
         setTransactionId(paymentIntent.id);
+        const payment = {
+          payment_id: paymentIntent.id,
+          name: user?.displayName || "anonymous",
+          email: user?.email || "anonymous",
+          rent,
+          month,
+          paid_date: new Date(),
+        };
+        const res = await axiosSecure.post("/payments", payment);
+        if (res.data.insertedId) {
+          Swal.fire({
+            position: "bottom-end",
+            icon: "success",
+            title: `Payment details save to database`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       }
     }
   };
@@ -98,14 +116,17 @@ const CheckoutForm = ({ rent, month }) => {
           disabled={!stripe || !elements || !clientSecret}
           className="btn bg-[#D1A054B3] text-white mt-4"
         >
-          Pay
+          Pay ${rent}
         </button>
       </form>
-      <div>
+      <div className="my-10">
         {transactionId && (
-          <p className="text-green-600">
-            Your Transaction ID: {transactionId}{" "}
-          </p>
+          <>
+            <h3 className="text-2xl mb-5">Payment Successful!</h3>
+            <p className="text-green-600">
+              Your Transaction ID: {transactionId}
+            </p>
+          </>
         )}
       </div>
     </>
