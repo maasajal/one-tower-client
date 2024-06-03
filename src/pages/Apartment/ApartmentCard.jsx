@@ -11,7 +11,8 @@ const ApartmentCard = ({ room }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [agreement, refetch] = useAgreement();
-
+  const date = new Date();
+  const request_date = date.toLocaleDateString();
   const handleAgreement = async () => {
     if (user && user.email) {
       const agreementInfo = {
@@ -23,6 +24,7 @@ const ApartmentCard = ({ room }) => {
         block_name,
         apartment_no,
         rent,
+        request_date,
         status: "pending",
       };
       if (agreement._id) {

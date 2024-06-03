@@ -13,13 +13,13 @@ const MyProfile = () => {
     apartment_no,
     rent,
     status,
-    agreement_accept_date,
+    accepted_date,
   } = agreement;
   return (
     <div>
       <SectionTitle title="My Profile" subTitle="I need a home" />
       <div className="flex items-center gap-10 mb-10">
-        <img src={user.photoURL} alt={user.displayName} />
+        <img src={user.photoURL} alt={user.displayName} className="w-52" />
         <div className="space-y-5">
           <h2 className="text-5xl font-bold">Name: {user.displayName}</h2>
           <h3 className="text-2xl">Email: {user.email} </h3>
@@ -28,47 +28,23 @@ const MyProfile = () => {
       <div>
         <div className="flex flex-col md:flex-row items-center gap-10 bg-[#d58c59] text-white shadow-xl">
           <img
-            src={
-              status === "pending" || agreement.length === 0 ? "none" : image
-            }
+            src={agreement ? image : "none"}
             alt="Apartment room: none"
             className="w-1/3"
           />
           <div className="flex-1">
             <h3 className="text-2xl">
-              Agreement accept date:{" "}
-              {status === "pending" || agreement.length === 0
-                ? "none"
-                : agreement_accept_date}
+              Agreement accept date: {agreement ? accepted_date : "none"}
             </h3>
             <h2 className="card-title">
-              Block:{" "}
-              {status === "pending" || agreement.length === 0
-                ? "none"
-                : block_name}
+              Block: {agreement ? block_name : "none"}
             </h2>
-            <p>
-              Floor No:{" "}
-              {status === "pending" || agreement.length === 0
-                ? "none"
-                : floor_no}
-            </p>
-            <p>
-              Apartment No:{" "}
-              {status === "pending" || agreement.length === 0
-                ? "none"
-                : apartment_no}
-            </p>
+            <p>Floor No: {agreement ? floor_no : "none"}</p>
+            <p>Apartment No: {agreement ? apartment_no : "none"}</p>
             <div className="card-actions justify-between items-center">
-              <div>
-                Rent:{" "}
-                {status === "pending" || agreement.length === 0 ? "none" : rent}{" "}
-              </div>
+              <div>Rent: {agreement ? rent : "none"} </div>
               <div className="bg-[#3d5cab] p-2">
-                Status:{" "}
-                {status === "pending" || agreement.length === 0
-                  ? "none"
-                  : status}
+                Status: {agreement ? status : "none"}
               </div>
             </div>
           </div>
