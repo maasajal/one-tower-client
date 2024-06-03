@@ -3,7 +3,7 @@ const Footer = () => {
   return (
     <>
       <footer className="text-white">
-        <div className="flex flex-col md:flex-row text-center mt-10">
+        <div className="flex flex-col md:flex-row text-center">
           <div className="bg-[#d58c59] py-14 flex-1">
             <h6 className="text-2xl font-semibold mb-5">Location</h6>
             <address className="leading-8">

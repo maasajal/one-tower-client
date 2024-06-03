@@ -26,18 +26,16 @@ const PaymentHistory = () => {
         title="Payment History"
         subTitle="Your have paid the rents"
       />
-      <div className="mb-10">
-        <h3 className="my-5">Search by Month name</h3>
-        <div className="flex items-center gap-10 my-5">
-          <div className="form-control">
-            <input
-              type="text"
-              placeholder="January"
-              name="month"
-              onChange={(e) => setSearch(e.target.value)}
-              className="input input-bordered"
-            />
-          </div>
+      <div className="mb-10 space-y-5">
+        <h3 className="text-2xl">Search by Month name</h3>
+        <div className="flex flex-col sm:flex-row items-center gap-5">
+          <input
+            type="text"
+            placeholder="January"
+            name="month"
+            onChange={(e) => setSearch(e.target.value)}
+            className="input input-bordered"
+          />
           <button onClick={handleSearch} className="btn btn-outline">
             Search
           </button>

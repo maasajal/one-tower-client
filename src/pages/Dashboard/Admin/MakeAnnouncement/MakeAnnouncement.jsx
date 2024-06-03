@@ -51,9 +51,9 @@ const MakeAnnouncement = () => {
         subTitle="Announcement for all users"
       />
       <h2 className="text-4xl font-bold py-10">Create an announcement</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col md:flex-row gap-5">
-          <div className="form-control flex-1">
+          <div className="form-control">
             <label className="label">
               <span className="label-text">Title</span>
             </label>
@@ -67,7 +67,7 @@ const MakeAnnouncement = () => {
               <span className="text-red-600">Title is required</span>
             )}
           </div>
-          <div className="form-control flex-1">
+          <div className="form-control">
             <label className="label">
               <span className="label-text">Description</span>
             </label>
@@ -81,7 +81,7 @@ const MakeAnnouncement = () => {
             )}
           </div>
         </div>
-        <div className="form-control mt-6">
+        <div className="mt-6">
           <input
             className="btn bg-[#D1A054B3] text-white"
             type="submit"

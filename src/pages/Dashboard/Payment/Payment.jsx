@@ -51,19 +51,18 @@ const Payment = () => {
         <title>Payment - One Tower</title>
       </Helmet>
       <SectionTitle title="Payment" subTitle="Pay your rent now" />
-      <div className="bg-[#e87726] rounded-xl p-10 flex justify-center gap-10">
+      <div className="bg-[#e87726] rounded-xl p-5 flex flex-col md:flex-row justify-center gap-10">
         <div className="flex-1">
           <h3 className="text-3xl mb-5">Payment Calculation</h3>
           {month ? (
             <div className="space-y-5">
               <p>Room Rent: ${currentRent}</p>
               <p>Pay Month: {month.toUpperCase()}</p>
-
               <div className="form-control mt-4">
                 <label className="label">
                   <span className="label-text">Coupon Code</span>
                 </label>
-                <div className="flex">
+                <div className="flex flex-col md:flex-row gap-3">
                   <input
                     type="text"
                     className="input input-bordered mr-2"

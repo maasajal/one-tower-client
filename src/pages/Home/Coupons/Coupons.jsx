@@ -28,19 +28,19 @@ const Coupons = () => {
             >
               Get valid Coupon
             </button>
-            <dialog id="coupons" className="modal">
+            <dialog id="coupons" className="modal sm:modal-middle">
               <div className="modal-box">
                 <h3 className="font-bold text-lg">Random Coupon!</h3>
-                <p className="py-4">
-                  Coupon Code
+                <p className="py-4 flex flex-col md:flex-row justify-evenly items-center gap-3">
+                  Coupon Code:
                   <span className="text-white bg-[#3d5cab] p-3 rounded-xl">
                     {randomCoupon.coupon_code}
                   </span>
                 </p>
-                <p className="py-4">
-                  Use the Coupon Code on Payment page to get
-                  <span className="text-white bg-[#3d5cab] p-3 rounded-xl">
-                    {randomCoupon.discount_percentage} %
+                <p className="py-4 flex flex-col md:flex-row justify-between items-center gap-3">
+                  Use the Coupon Code on Payment page to get discount
+                  <span className="text-white bg-[#3d5cab] p-3 rounded-xl max-w-fit">
+                    {randomCoupon.discount_percentage}%
                   </span>
                 </p>
               </div>
