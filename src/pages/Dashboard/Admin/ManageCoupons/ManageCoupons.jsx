@@ -2,9 +2,11 @@ import Swal from "sweetalert2";
 import SectionTitle from "../../../../components/SectionTitle";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
+import useCoupons from "../../../../hooks/useCoupons";
 
 const ManageCoupons = () => {
   const axiosSecure = useAxiosSecure();
+  const [coupons, refetch] = useCoupons();
   const {
     register,
     handleSubmit,
@@ -18,7 +20,6 @@ const ManageCoupons = () => {
     },
   });
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       const res = await axiosSecure.post("/coupons", data);
       if (res.data.insertedId) {
@@ -31,6 +32,7 @@ const ManageCoupons = () => {
           timer: 1500,
         });
         reset();
+        refetch();
       }
     } catch (error) {
       Swal.fire({
@@ -133,15 +135,19 @@ const ManageCoupons = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>1 </th>
-              <th>Coupon Code</th>
-              <td>Discount Percentage</td>
-              <td>Coupon Description</td>
-              <td>
-                <button className="btn btn-outline text-red-500">Delete</button>
-              </td>
-            </tr>
+            {coupons.map((coupon, index) => (
+              <tr>
+                <th>{index + 1} </th>
+                <th>{coupon.coupon_code}</th>
+                <td>{coupon.discount_percentage} %</td>
+                <td>{coupon.coupon_description}</td>
+                <td>
+                  <button className="btn btn-outline text-red-500">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
