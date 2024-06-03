@@ -17,11 +17,13 @@ import MakeAnnouncement from "../pages/Dashboard/Admin/MakeAnnouncement/MakeAnno
 import AgreementRequests from "../pages/Dashboard/Admin/AgreementRequests/AgreementRequests";
 import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons/ManageCoupons";
 import AdminRoute from "./AdminRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
