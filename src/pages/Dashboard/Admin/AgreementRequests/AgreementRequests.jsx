@@ -46,6 +46,30 @@ const AgreementRequests = () => {
       });
     }
   };
+  const handleReject = async (agreement) => {
+    try {
+      const { data } = await axiosSecure.patch(`/agreements/${agreement._id}`, {
+        accepted_date: "rejected",
+      });
+      if (data.modifiedCount > 0) {
+        Swal.fire({
+          title: `Agreement rejected!`,
+          icon: "success",
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        refetch();
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: `An error occurred: ${error.message}`,
+        icon: "error",
+        confirmButtonText: "Try Again",
+      });
+    }
+  };
 
   return (
     <div>
@@ -94,7 +118,12 @@ const AgreementRequests = () => {
                       >
                         Accept
                       </button>
-                      <button className="btn btn-outline">Reject</button>
+                      <button
+                        onClick={() => handleReject(agreement)}
+                        className="btn btn-outline"
+                      >
+                        Reject
+                      </button>
                     </th>
                   </tr>
                 ))}
