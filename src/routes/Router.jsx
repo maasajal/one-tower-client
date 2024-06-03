@@ -11,6 +11,8 @@ import Announcements from "../pages/Dashboard/Announcements";
 import MakePayment from "../pages/Dashboard/Payment/MakePayment";
 import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import ManageMembers from "../pages/Dashboard/Admin/ManageMembers/ManageMembers";
+import AdminProfile from "../pages/Dashboard/Admin/AdminProfile.js/AdminProfile";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +78,23 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <PaymentHistory />
+          </PrivateRoute>
+        ),
+      },
+      //   Admin dashboard navs
+      {
+        path: "/dashboard/adminProfile",
+        element: (
+          <PrivateRoute>
+            <AdminProfile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/manageMembers",
+        element: (
+          <PrivateRoute>
+            <ManageMembers />
           </PrivateRoute>
         ),
       },
