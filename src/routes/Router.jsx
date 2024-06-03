@@ -13,6 +13,7 @@ import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import ManageMembers from "../pages/Dashboard/Admin/ManageMembers/ManageMembers";
 import AdminProfile from "../pages/Dashboard/Admin/AdminProfile.js/AdminProfile";
+import MakeAnnouncement from "../pages/Dashboard/Admin/MakeAnnouncement/MakeAnnouncement";
 
 const router = createBrowserRouter([
   {
@@ -95,6 +96,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ManageMembers />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/makeAnnouncement",
+        element: (
+          <PrivateRoute>
+            <MakeAnnouncement />
           </PrivateRoute>
         ),
       },

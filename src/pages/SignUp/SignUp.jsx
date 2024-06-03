@@ -56,15 +56,6 @@ const SignUp = () => {
         reset();
         navigate(from, { replace: true });
       }
-      // Swal.fire({
-      //   position: "top-end",
-      //   title: "Success!",
-      //   text: `Welcome ${user.displayName ? user.displayName : user.email}`,
-      //   icon: "success",
-      //   showConfirmButton: false,
-      //   timer: 1500,
-      // });
-      // navigate(from, { replace: true });
     } catch (error) {
       console.error("Error", error);
       Swal.fire({
