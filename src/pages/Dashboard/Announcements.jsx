@@ -8,12 +8,29 @@ const Announcements = () => {
       <SectionTitle title="Announcements" subTitle="Good news for you" />
       <div>
         <h2 className="text-3xl font-bold my-5 border-b-2 border-[#e87726] w-fit pb-3">
-          Announcement Title: {announcements.title}
+          Announcements by house owner
         </h2>
-        <p className="leading-8">
-          <strong>Announcement description: </strong>
-          {announcements.description}
-        </p>
+        <div className="overflow-x-auto">
+          <table className="table bg-[#3d5cab] text-white">
+            {/* head */}
+            <thead>
+              <tr className=" text-white">
+                <th></th>
+                <th>Announcement Title</th>
+                <th>Announcement description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {announcements.map((announce, index) => (
+                <tr>
+                  <th>{index + 1} </th>
+                  <th>{announce.title}</th>
+                  <td>{announce.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
