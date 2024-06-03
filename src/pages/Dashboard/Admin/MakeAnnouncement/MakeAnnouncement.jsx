@@ -17,7 +17,6 @@ const MakeAnnouncement = () => {
     },
   });
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       const res = await axiosSecure.post("/announcements", data);
       if (res.data.insertedId) {
