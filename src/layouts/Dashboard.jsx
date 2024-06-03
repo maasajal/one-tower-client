@@ -1,7 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/logo.png";
+import useUsers from "../hooks/useUsers";
+import useAdmin from "../hooks/useAdmin";
 const Dashboard = () => {
-  const isAdmin = true;
+  const [users] = useUsers();
+  const memberUser = users.filter((member) => member.role === "member");
+  const [isAdmin] = useAdmin();
 
   return (
     <div className="flex">
@@ -35,14 +39,18 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/myProfile">My Profile</NavLink>
               </li>
-              <li>
-                <NavLink to="/dashboard/makePayment">Make Payment</NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/paymentHistory">
-                  Payment History
-                </NavLink>
-              </li>
+              {memberUser.length > 0 && (
+                <>
+                  <li>
+                    <NavLink to="/dashboard/makePayment">Make Payment</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/dashboard/paymentHistory">
+                      Payment History
+                    </NavLink>
+                  </li>
+                </>
+              )}
               <li>
                 <NavLink to="/dashboard/announcements">Announcements</NavLink>
               </li>
