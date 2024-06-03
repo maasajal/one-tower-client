@@ -17,6 +17,7 @@ import "./Apartment.css";
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import { Carousel } from "react-responsive-carousel";
+import { Helmet } from "react-helmet";
 
 const Apartment = () => {
   const [apartment] = useApartment();
@@ -36,6 +37,10 @@ const Apartment = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Apartments - One Tower</title>
+      </Helmet>
       <Banner />
       <div className="max-w-6xl mx-auto px-2 md:px-4 py-12">
         <SectionTitle

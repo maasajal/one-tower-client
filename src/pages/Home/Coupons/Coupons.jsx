@@ -8,7 +8,6 @@ const Coupons = () => {
     return coupons[randomIndex];
   };
   const randomCoupon = getRandomCoupon(coupons);
-  console.log(randomCoupon);
 
   return (
     <div className="py-14 bg-[#b1b6c0]">
@@ -17,7 +16,7 @@ const Coupons = () => {
         subTitle="Find a coupon and it for discount in rent"
       />
       <div className="text-center space-y-5">
-        {coupons && (
+        {coupons && randomCoupon && (
           <>
             <h3 className="text-3xl font-semibold">
               Coupons ({coupons.length}){" "}

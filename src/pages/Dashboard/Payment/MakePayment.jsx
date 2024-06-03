@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAgreement from "../../../hooks/useAgreement";
 import usePaymentHistory from "../../../hooks/usePaymentHistory";
+import { Helmet } from "react-helmet";
 
 const MakePayment = () => {
   const [agreement] = useAgreement();
@@ -56,6 +57,10 @@ const MakePayment = () => {
   };
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Make Payment - One Tower</title>
+      </Helmet>
       <SectionTitle
         title="Make Payment"
         subTitle="Which month’s rent you want to pay?"

@@ -11,6 +11,7 @@ import {
 } from "react-simple-captcha";
 import SocialLogin from "../../components/SocialLogin";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const captchaRef = useRef(null);
@@ -59,6 +60,10 @@ const Login = () => {
   };
   return (
     <div className="max-w-6xl mx-auto px-2 md:px-4 py-16">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login - One Tower</title>
+      </Helmet>
       <div className="hero bg-[#3d5cab] my-20 rounded-xl shadow-2xl">
         <div className="hero-content">
           <div className="card bg-base-100">

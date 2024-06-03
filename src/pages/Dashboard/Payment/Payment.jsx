@@ -6,6 +6,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import useCoupons from "../../../hooks/useCoupons";
+import { Helmet } from "react-helmet";
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_PK);
 
@@ -45,6 +46,10 @@ const Payment = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Payment - One Tower</title>
+      </Helmet>
       <SectionTitle title="Payment" subTitle="Pay your rent now" />
       <div className="bg-[#e87726] rounded-xl p-10 flex justify-center gap-10">
         <div className="flex-1">

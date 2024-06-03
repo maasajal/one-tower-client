@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import SectionTitle from "../../../../components/SectionTitle";
 import useUsers from "../../../../hooks/useUsers";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const ManageMembers = () => {
   const [users, refetch] = useUsers();
@@ -32,6 +33,10 @@ const ManageMembers = () => {
   };
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Manage Members - One Tower</title>
+      </Helmet>
       <SectionTitle title="Manage Members" subTitle="All of the Tenants" />
       <h2 className="text-4xl font-bold py-10">Manege Members</h2>
       {members && (

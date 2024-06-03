@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "../../components/SocialLogin";
 import useAuth from "../../hooks/useAuth";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -41,7 +42,7 @@ const SignUp = () => {
       const userInfo = {
         name,
         email,
-        role: "user"
+        role: "user",
       };
       const { data } = await axiosPublic.post("/users", userInfo);
       if (data.insertedId) {
@@ -69,6 +70,10 @@ const SignUp = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-2 md:px-4 py-16">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Sign Up - One Tower</title>
+      </Helmet>
       <div className="hero bg-[#3d5cab] my-20 rounded-xl shadow-2xl">
         <div className="hero-content">
           <div className="card bg-base-100">

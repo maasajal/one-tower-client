@@ -3,6 +3,7 @@ import SectionTitle from "../../../../components/SectionTitle";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import useCoupons from "../../../../hooks/useCoupons";
+import { Helmet } from "react-helmet";
 
 const ManageCoupons = () => {
   const axiosSecure = useAxiosSecure();
@@ -45,6 +46,10 @@ const ManageCoupons = () => {
   };
   return (
     <div>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Manage Coupons - One Tower</title>
+    </Helmet>
       <SectionTitle
         title="Manage Coupons"
         subTitle="All coupons here & add more"

@@ -3,6 +3,7 @@ import SectionTitle from "../../../../components/SectionTitle";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AgreementRequests = () => {
   const axiosSecure = useAxiosSecure();
@@ -73,6 +74,10 @@ const AgreementRequests = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Agreement Requests - One Tower</title>
+      </Helmet>
       <SectionTitle
         title="Agreement Requests"
         subTitle="All agreement request information"

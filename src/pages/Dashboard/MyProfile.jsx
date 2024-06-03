@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import SectionTitle from "../../components/SectionTitle";
 import useAuth from "../../hooks/useAuth";
 import useAgreement from "../../hooks/useAgreement";
+import { Helmet } from "react-helmet";
 
 const MyProfile = () => {
   const { user } = useAuth();
@@ -17,6 +18,10 @@ const MyProfile = () => {
   } = agreement;
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>{user.displayName} Profile - One Tower</title>
+      </Helmet>
       <SectionTitle title="My Profile" subTitle="I need a home" />
       <div className="flex items-center gap-10 mb-10">
         <img src={user.photoURL} alt={user.displayName} className="w-52" />

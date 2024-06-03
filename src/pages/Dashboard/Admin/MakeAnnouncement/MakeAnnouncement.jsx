@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import SectionTitle from "../../../../components/SectionTitle";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const MakeAnnouncement = () => {
   const axiosSecure = useAxiosSecure();
@@ -41,6 +42,10 @@ const MakeAnnouncement = () => {
   };
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Make Announcement - One Tower</title>
+      </Helmet>
       <SectionTitle
         title="Make announcement"
         subTitle="Announcement for all users"

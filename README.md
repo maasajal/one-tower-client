@@ -1,10 +1,11 @@
 # One Tower
 
-## [Private Client side Repo Link](https://github.com/programming-hero-web-course1/b9a12-client-side-maasajal)
+## Admin role
 
-## [Private Server side Repo Link](https://github.com/programming-hero-web-course1/b9a12-server-side-maasajal)
+- User Name: `one@tower.com`
+- Password: `one$1Tower`
 
-## Live Client Site Link: [https://one-tower.web.app](https://one-tower.web.app)
+## Live Client Site Link: [https://one1-tower.web.app](https://one1-tower.web.app)
 
 ## Live Server Site Link: [https://one-tower.vercel.app](https://one-tower.vercel.app)
 
@@ -12,11 +13,15 @@
 
 - assignment12_category_0012
 
+## [Private Client side Repo Link](https://github.com/programming-hero-web-course1/b9a12-client-side-maasajal)
+
+## [Private Server side Repo Link](https://github.com/programming-hero-web-course1/b9a12-server-side-maasajal)
+
 ## About the project
 
 Short description about One Tower here...
 
-### Features and Packages
+### Features and Packages used in this project
 
 - Swiper Slider
 - Sweet Alert Toaster
@@ -28,17 +33,11 @@ Short description about One Tower here...
 - Mongodb database
 - Node.js server
 - Methods: ["GET", "POST", "PUT", "DELETE", "PATCH"]
-- View details for login user
 - Rent request for login user
 - Payment option for member user
 - JsonWebToken (jwt)
 
 ### Challenge Requirements
-
-### Admin role
-
-- Email: `one@tower.com`
-- Password: `one$1Tower`
 
 ### Color code
 

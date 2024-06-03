@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SectionTitle from "../../../components/SectionTitle";
 import usePaymentHistory from "../../../hooks/usePaymentHistory";
+import { Helmet } from "react-helmet";
 
 const PaymentHistory = () => {
   const [paymentHistory, refetch] = usePaymentHistory();
@@ -17,6 +18,10 @@ const PaymentHistory = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Payment History - One Tower</title>
+      </Helmet>
       <SectionTitle
         title="Payment History"
         subTitle="Your have paid the rents"
