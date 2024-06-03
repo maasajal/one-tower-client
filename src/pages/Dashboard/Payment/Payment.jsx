@@ -55,7 +55,7 @@ const Payment = () => {
           {month ? (
             <div className="space-y-5">
               <p>Room Rent: ${currentRent}</p>
-              <p>Pay Month: {month}</p>
+              <p>Pay Month: {month.toUpperCase()}</p>
 
               <div className="form-control mt-4">
                 <label className="label">
@@ -91,10 +91,6 @@ const Payment = () => {
               <CheckoutForm rent={rent} month={month} />
             </Elements>
           </div>
-          {/* Add your payment processing logic here */}
-          {/* <button className="btn bg-[#D1A054B3] text-white mt-4">
-            Pay ${rent}
-          </button> */}
         </div>
       </div>
     </>

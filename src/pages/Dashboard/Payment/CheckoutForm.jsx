@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ rent, month }) => {
   const [error, setError] = useState("");
@@ -12,6 +13,7 @@ const CheckoutForm = ({ rent, month }) => {
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axiosSecure.post("/create-payment-intent", { rent }).then((res) => {
@@ -69,13 +71,15 @@ const CheckoutForm = ({ rent, month }) => {
           timer: 1500,
         });
         setTransactionId(paymentIntent.id);
+        const date = new Date();
+        const payDate = date.toLocaleDateString();
         const payment = {
           payment_id: paymentIntent.id,
           name: user?.displayName || "anonymous",
           email: user?.email || "anonymous",
           rent,
           month,
-          paid_date: new Date(),
+          paid_date: payDate,
         };
         const res = await axiosSecure.post("/payments", payment);
         if (res.data.insertedId) {
@@ -86,6 +90,7 @@ const CheckoutForm = ({ rent, month }) => {
             showConfirmButton: false,
             timer: 1500,
           });
+          navigate("/dashboard/paymentHistory");
         }
       }
     }

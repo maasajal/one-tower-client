@@ -3,10 +3,12 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAgreement from "../../../hooks/useAgreement";
+import usePaymentHistory from "../../../hooks/usePaymentHistory";
 
 const MakePayment = () => {
   const [agreement] = useAgreement();
   const { user_email, block_name, floor_no, apartment_no, rent } = agreement;
+  const [paymentHistory] = usePaymentHistory();
 
   const date = new Date();
   const month = date.toLocaleString("default", { month: "long" });
@@ -25,10 +27,23 @@ const MakePayment = () => {
   });
   const onSubmit = (data) => {
     try {
-      navigate("/dashboard/payment", {
-        replace: true,
-        state: { rent: data.rent, month: data.month },
-      });
+      const monthExist = paymentHistory.find(
+        (m) => m.month.toLowerCase() === data.month.toLowerCase()
+      );
+      if (monthExist) {
+        Swal.fire({
+          title: "Error!",
+          text: `You already paid for the month ${data.month}`,
+          icon: "error",
+          confirmButtonText: "Change month",
+        });
+        return;
+      } else {
+        navigate("/dashboard/payment", {
+          replace: true,
+          state: { rent: data.rent, month: data.month },
+        });
+      }
     } catch (error) {
       console.error("Error", error);
       Swal.fire({
