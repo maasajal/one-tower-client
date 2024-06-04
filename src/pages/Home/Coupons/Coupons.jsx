@@ -10,7 +10,7 @@ const Coupons = () => {
   const randomCoupon = getRandomCoupon(coupons);
 
   return (
-    <div className="py-14 bg-[#b1b6c0]">
+    <div className="py-14 border-2 border-[#3d5cab80] my-5 ">
       <SectionTitle
         title="Coupons"
         subTitle="Find a coupon and it for discount in rent"

@@ -27,7 +27,7 @@ const Location = () => {
         adventures a breeze.
       </p>
       <div className="my-5 md:my-10 flex items-center flex-col md:flex-row">
-        <div className="bg-[#3d5cab] p-4 md:p-10 text-white space-y-5 md:w-1/3">
+        <div className="bg-[#3d5cab] p-4 md:p-10 text-white space-y-5 w-full md:w-1/3">
           <h3 className="text-3xl">Address:</h3>
           <address>Pellervonkatu 9 / Joukahaisenkatu 5, 33540 TAMPERE</address>
           <h3 className="text-3xl">Distances</h3>
@@ -58,24 +58,12 @@ const Location = () => {
         </div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.809106743173!2d23.80415530000001!3d61.49791179999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468f20a765ecd8a7%3A0x89ececfbeb855b1c!2sPellervonkatu%209%2C%2033540%20Tampere!5e0!3m2!1sen!2sfi!4v1717236925143!5m2!1sen!2sfi"
-          className="h-[500px] w-full md:w-2/3"
+          className="h-[550px] w-full md:w-2/3"
           allowfullscreen="true"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      {/* <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-        <OneTowerMap />
-      </div> */}
-      {/* <div style={{ height: "100vh", width: "100%" }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: "" }}
-          defaultCenter={defaultProps.center}
-          defaultZoom={defaultProps.zoom}
-        >
-          <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" />
-        </GoogleMapReact>
-      </div> */}
     </div>
   );
 };
