@@ -7,7 +7,7 @@ const SectionTitle = ({ title, subTitle }) => {
         <FaBuilding />
         {title}{" "}
       </h2>
-      <p className="text-[#c3a18c] ">---{subTitle}---</p>
+      <p>_____*****{subTitle}*****_____</p>
     </div>
   );
 };

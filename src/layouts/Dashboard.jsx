@@ -1,14 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/logo.png";
-import useUsers from "../hooks/useUsers";
 import useAdmin from "../hooks/useAdmin";
 import { RiMenuUnfold3Fill } from "react-icons/ri";
+import useMember from "../hooks/useMember";
 
 const Dashboard = () => {
-  const [users] = useUsers();
-  const memberUser = users.filter((member) => member.role === "member");
   const [isAdmin] = useAdmin();
-
+  const [isMember] = useMember();
   return (
     <>
       <div className="drawer md:drawer-open font-Raleway">
@@ -70,7 +68,7 @@ const Dashboard = () => {
                   <li>
                     <NavLink to="/dashboard/myProfile">My Profile</NavLink>
                   </li>
-                  {memberUser.length > 0 && (
+                  {isMember && (
                     <>
                       <li>
                         <NavLink to="/dashboard/makePayment">

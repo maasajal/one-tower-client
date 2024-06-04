@@ -27,7 +27,7 @@ const Announcements = () => {
             </thead>
             <tbody>
               {announcements.map((announce, index) => (
-                <tr>
+                <tr key={index}>
                   <th>{index + 1} </th>
                   <th>{announce.title}</th>
                   <td>{announce.description}</td>
