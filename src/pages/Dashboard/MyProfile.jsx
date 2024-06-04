@@ -23,24 +23,22 @@ const MyProfile = () => {
         <title>{user.displayName} Profile - One Tower</title>
       </Helmet>
       <SectionTitle title="My Profile" subTitle="Check you agreement" />
-      <div className="hero">
-        <div className="hero-content flex-col lg:flex-row mb-10">
-          <img
-            src={user.photoURL}
-            alt={user.displayName}
-            className="w-2/3 rounded-xl"
-          />
-          <div className="space-y-5 w-full">
-            <h2 className="text-5xl font-bold">Name: {user.displayName}</h2>
-            <h3 className="text-2xl">Email: {user.email} </h3>
-          </div>
+      <div className="flex items-center flex-col lg:flex-row gap-5 mb-10">
+        <img
+          src={user.photoURL}
+          alt={user.displayName}
+          className="w-2/3 rounded-xl"
+        />
+        <div className="space-y-5 w-full">
+          <h2 className="text-5xl font-bold">Name: {user.displayName}</h2>
+          <h3 className="text-2xl">Email: {user.email} </h3>
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-5 bg-[#d58c59] text-white shadow-xl">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-5 bg-[#d58c59] text-white shadow-xl">
         <img
           src={agreement ? image : "none"}
           alt="Apartment room: none"
-          className="w-2/3"
+          className="w-full md:w-1/3"
         />
         <div className="w-full pl-5">
           <h3 className="text-2xl">

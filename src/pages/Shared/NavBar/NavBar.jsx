@@ -4,6 +4,7 @@ import userPhoto from "../../../../public/favicon.png";
 import "./NavBar.css";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { MdLogin } from "react-icons/md";
 
 const NavBar = () => {
   const { user, loading, logOut } = useAuth();
@@ -123,7 +124,7 @@ const NavBar = () => {
               to="/login"
               className="btn btn-outline px-3 text-[#e87726] uppercase font-extrabold"
             >
-              Login
+              <MdLogin className="text-2xl" />
             </Link>
           )}
         </div>

@@ -68,7 +68,7 @@ const MakePayment = () => {
       <div className="bg-[#e87726] rounded-xl">
         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
           <div className="flex flex-col md:flex-row gap-5">
-            <div className="form-control ">
+            <div className="form-control flex-1">
               <label className="label">
                 <span className="label-text">Member Email</span>
               </label>
@@ -79,7 +79,7 @@ const MakePayment = () => {
                 readOnly
               />
             </div>
-            <div className="form-control ">
+            <div className="form-control flex-1">
               <label className="label">
                 <span className="label-text">Block Name</span>
               </label>
@@ -92,7 +92,7 @@ const MakePayment = () => {
             </div>
           </div>
           <div className="flex flex-col md:flex-row gap-5">
-            <div className="form-control">
+            <div className="form-control flex-1">
               <label className="label">
                 <span className="label-text">Floor No</span>
               </label>
@@ -102,7 +102,7 @@ const MakePayment = () => {
                 readOnly
               />
             </div>
-            <div className="form-control">
+            <div className="form-control flex-1">
               <label className="label">
                 <span className="label-text">Apartment No</span>
               </label>
@@ -116,7 +116,7 @@ const MakePayment = () => {
             </div>
           </div>
           <div className="flex flex-col md:flex-row gap-5">
-            <div className="form-control">
+            <div className="form-control flex-1">
               <label className="label">
                 <span className="label-text">Rent</span>
               </label>
@@ -127,7 +127,7 @@ const MakePayment = () => {
                 readOnly
               />
             </div>
-            <div className="form-control">
+            <div className="form-control flex-1">
               <label className="label">
                 <span className="label-text">
                   Which month’s rent you want to pay?
