@@ -5,9 +5,12 @@ import "./NavBar.css";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { MdLogin } from "react-icons/md";
+import useAdmin from "../../../hooks/useAdmin";
 
 const NavBar = () => {
   const { user, loading, logOut } = useAuth();
+  const [isAdmin] = useAdmin();
+
   const navLinks = (
     <>
       <li key="home" className="hover:text-[#e87726]">
@@ -105,7 +108,11 @@ const NavBar = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/dashboard/myProfile"
+                    to={`${
+                      isAdmin
+                        ? "/dashboard/adminProfile"
+                        : "/dashboard/myProfile"
+                    }`}
                     className="py-3 hover:text-white"
                   >
                     Dashboard
