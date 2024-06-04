@@ -27,6 +27,16 @@ const ApartmentCard = ({ room }) => {
         request_date,
         status: "pending",
       };
+      if (user.email === "one@tower.com") {
+        Swal.fire({
+          title: "Owner cannot rent the apartment!",
+          icon: "warning",
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        return;
+      }
       if (agreement._id) {
         Swal.fire({
           position: "top-end",
@@ -60,7 +70,7 @@ const ApartmentCard = ({ room }) => {
         confirmButtonText: "Yes, Login",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/login", { state: { from: location } });
+          navigate("/login", { state: { from: location }, replace: true });
         }
       });
     }
