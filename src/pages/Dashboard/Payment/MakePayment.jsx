@@ -118,7 +118,7 @@ const MakePayment = () => {
           <div className="flex flex-col md:flex-row gap-5">
             <div className="form-control flex-1">
               <label className="label">
-                <span className="label-text">Rent</span>
+                <span className="label-text">Rent $</span>
               </label>
               <input
                 name="rent"

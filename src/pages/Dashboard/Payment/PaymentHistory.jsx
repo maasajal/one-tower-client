@@ -14,6 +14,7 @@ const PaymentHistory = () => {
     );
     console.log(monthExist);
     setMonth(monthExist);
+    refetch();
   };
 
   return (
