@@ -5,10 +5,10 @@ import useApartment from "../../../../hooks/useApartment";
 
 const AdminProfile = () => {
   const [users] = useUsers();
-  const admin = users.find((user) => user.role === "admin");
   const [apartment] = useApartment();
-  const allUsers = users.filter((user) => user.role === "user");
-  const members = users.filter((member) => member.role === "member");
+  const admin = users?.find((user) => user.role === "admin");
+  const allUsers = users?.filter((user) => user.role === "user");
+  const members = users?.filter((member) => member.role === "member");
 
   const totalApartment = apartment.length; // Total apartment
   const totalUsers = allUsers.length; // Total user, they want the apartment
@@ -35,13 +35,13 @@ const AdminProfile = () => {
       />
       <div className="flex items-center flex-col lg:flex-row gap-5 mb-10">
         <img
-          src={admin.image}
-          alt={admin.name}
+          src={admin?.image}
+          alt={admin?.name}
           className="w-full md:w-2/3 rounded-xl"
         />
         <div className="space-y-5 w-full">
-          <h2 className="text-5xl font-bold">Name: {admin.name}</h2>
-          <h3 className="text-2xl">Email: {admin.email} </h3>
+          <h2 className="text-5xl font-bold">Name: {admin?.name}</h2>
+          <h3 className="text-2xl">Email: {admin?.email} </h3>
         </div>
       </div>
       <hr />

@@ -3,11 +3,18 @@ import SectionTitle from "../../components/SectionTitle";
 import useAuth from "../../hooks/useAuth";
 import useAgreement from "../../hooks/useAgreement";
 import { Helmet } from "react-helmet";
+import { FaTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
+import useMember from "../../hooks/useMember";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyProfile = () => {
   const { user } = useAuth();
+  const [isMember] = useMember();
   const [agreement, refetch] = useAgreement();
+  const axiosSecure = useAxiosSecure();
   const {
+    _id,
     image,
     floor_no,
     block_name,
@@ -16,6 +23,41 @@ const MyProfile = () => {
     status,
     accepted_date,
   } = agreement;
+
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Delete it!",
+    });
+    if (result.isConfirmed) {
+      try {
+        const { data } = await axiosSecure.delete(`/agreements/${id}`);
+        if (data.deletedCount > 0) {
+          refetch();
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your agreement has been deleted.",
+            icon: "success",
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      } catch (error) {
+        Swal.fire({
+          title: "Error!",
+          text: `An error occurred: ${error.message}`,
+          icon: "error",
+          confirmButtonText: "Try Again",
+        });
+      }
+    }
+  };
   return (
     <div>
       <Helmet>
@@ -40,7 +82,7 @@ const MyProfile = () => {
           alt="Apartment room: none"
           className="w-full md:w-1/3"
         />
-        <div className="w-full pl-5">
+        <div className="w-full pl-5 relative">
           <h3 className="text-2xl">
             Agreement accept date: {agreement ? accepted_date : "none"}
           </h3>
@@ -54,6 +96,15 @@ const MyProfile = () => {
             <div className="bg-[#3d5cab] p-2">
               Status: {agreement ? status : "none"}
             </div>
+          </div>
+          <div className="absolute top-2 right-2">
+            <button
+              disabled={isMember || !agreement || status === "pending"}
+              className="btn btn-outline text-red-500"
+              onClick={() => handleDelete(_id)}
+            >
+              <FaTrashAlt />
+            </button>
           </div>
         </div>
       </div>

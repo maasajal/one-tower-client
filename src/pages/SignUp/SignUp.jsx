@@ -39,6 +39,7 @@ const SignUp = () => {
       const response = await createUser(email, password);
       const user = response.user;
       await userProfileUpdate(name, photo);
+      navigate(from, { replace: true });
       const userInfo = {
         name,
         email,
