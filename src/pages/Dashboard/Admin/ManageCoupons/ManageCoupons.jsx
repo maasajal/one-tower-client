@@ -27,7 +27,7 @@ const ManageCoupons = () => {
         Swal.fire({
           position: "top-end",
           title: "Success!",
-          text: `Add new coupon seccessfullly`,
+          text: `Add new coupon successfully`,
           icon: "success",
           showConfirmButton: false,
           timer: 1500,
@@ -44,12 +44,47 @@ const ManageCoupons = () => {
       });
     }
   };
+
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Delete it!",
+    });
+    if (result.isConfirmed) {
+      try {
+        const { data } = await axiosSecure.delete(`/coupons/${id}`);
+        if (data.deletedCount > 0) {
+          Swal.fire({
+            position: "top-end",
+            title: "Success!",
+            text: `Coupon deleted successfully`,
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          refetch();
+        }
+      } catch (error) {
+        Swal.fire({
+          title: "Error!",
+          text: `${error.message}`,
+          icon: "error",
+          confirmButtonText: "Try Again",
+        });
+      }
+    }
+  };
   return (
     <div>
-    <Helmet>
-      <meta charSet="utf-8" />
-      <title>Manage Coupons - One Tower</title>
-    </Helmet>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Manage Coupons - One Tower</title>
+      </Helmet>
       <SectionTitle
         title="Manage Coupons"
         subTitle="All coupons here & add more"
@@ -147,7 +182,10 @@ const ManageCoupons = () => {
                 <td>{coupon.discount_percentage} %</td>
                 <td>{coupon.coupon_description}</td>
                 <td>
-                  <button className="btn btn-outline text-red-500">
+                  <button
+                    onClick={() => handleDelete(coupon._id)}
+                    className="btn btn-outline text-red-500"
+                  >
                     Delete
                   </button>
                 </td>
