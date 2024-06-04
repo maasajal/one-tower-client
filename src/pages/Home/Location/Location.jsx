@@ -14,7 +14,7 @@ const Location = () => {
   };
 
   return (
-    <div className="py-10">
+    <div id="contact" className="py-10">
       <SectionTitle
         title="Find Your Way to One Tower"
         subTitle="Want to Visit our location?"

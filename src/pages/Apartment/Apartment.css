@@ -3,17 +3,17 @@
   top: auto;
   bottom: 0;
   background-color: #3d5cab;
-  color: black;
-  border: 1px solid black;
+  color: #e87726;
+  border: 1px solid #e87726;
   border-radius: 50%;
   height: 50px;
   width: 50px;
 }
-#apartment .swiper-button-prev {
-  left: 25%;
-}
-#apartment .swiper-button-next {
-  right: 25%;
+@media only screen and (max-width: 700px) {
+  #apartment .swiper-button-prev,
+  #apartment .swiper-button-next {
+    display: none;
+  }
 }
 
 #apartment .swiper-pagination-bullet {

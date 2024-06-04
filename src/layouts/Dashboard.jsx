@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="drawer md:drawer-open">
+      <div className="drawer md:drawer-open font-Raleway">
         <input
           id="dashboard_drawer"
           type="checkbox"

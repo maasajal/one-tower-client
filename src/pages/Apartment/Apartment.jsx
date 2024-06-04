@@ -1,6 +1,6 @@
 import SectionTitle from "../../components/SectionTitle";
 import useApartment from "../../hooks/useApartment";
-import Banner from "../Home/Banner/Banner";
+import Cover from "../Shared/Cover/Cover";
 import ApartmentCard from "./ApartmentCard";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -41,14 +41,18 @@ const Apartment = () => {
         <meta charSet="utf-8" />
         <title>Apartments - One Tower</title>
       </Helmet>
-      <Banner />
+      <Cover
+        bgImage="https://i.ibb.co/qdS9LFZ/apartmentforrent.jpg"
+        heading="Apartment for Rent"
+        headingText="Welcome to The One Tower Agreement"
+      />
       <div className="max-w-6xl mx-auto px-2 md:px-4 py-12">
         <SectionTitle
           title="Our Apartments"
           subTitle="Find your suitable apartment"
         />
         <section id="apartment">
-          <Carousel>
+          {/* <Carousel>
             {pages.map((rooms, index) => (
               <div key={index}>
                 <img src={index + 1} alt={index + 1} className="w-5" />
@@ -59,8 +63,9 @@ const Apartment = () => {
                 </div>
               </div>
             ))}
-          </Carousel>
-          {/* <Swiper
+          </Carousel> */}
+
+          <Swiper
             pagination={pagination}
             navigation={true}
             modules={[Pagination, Navigation]}
@@ -69,14 +74,14 @@ const Apartment = () => {
           >
             {pages.map((rooms, index) => (
               <SwiperSlide key={index}>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-14 md:pb-20">
                   {rooms.map((room) => (
                     <ApartmentCard key={room._id} room={room} />
                   ))}
                 </div>
               </SwiperSlide>
             ))}
-          </Swiper> */}
+          </Swiper>
         </section>
       </div>
     </>

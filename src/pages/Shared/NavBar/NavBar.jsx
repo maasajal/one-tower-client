@@ -17,10 +17,10 @@ const NavBar = () => {
         <NavLink to="/apartment">Apartment</NavLink>
       </li>
       <li key="about" className="hover:text-[#e87726]">
-        <NavLink to="/about">About Us</NavLink>
+        <Link to="/#about">About Us</Link>
       </li>
       <li key="contact" className="hover:text-[#e87726]">
-        <NavLink to="/contact">Contact Us</NavLink>
+        <Link to="/#contact">Contact Us</Link>
       </li>
     </>
   );

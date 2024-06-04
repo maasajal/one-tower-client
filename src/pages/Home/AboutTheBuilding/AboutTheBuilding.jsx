@@ -2,7 +2,7 @@ import SectionTitle from "../../../components/SectionTitle";
 
 const AboutTheBuilding = () => {
   return (
-    <div className="bg-[#3d5cab] py-14">
+    <div id="about" className="bg-[#3d5cab] py-14">
       <SectionTitle
         title="About The Building"
         subTitle="Know more about our building"
@@ -37,7 +37,7 @@ const AboutTheBuilding = () => {
           <h4 className="text-2xl font-semibold border-b-2 border-[#e87726] w-fit pb-3">
             State-of-the-Art Amenities
           </h4>
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col-reverse md:flex-row gap-8">
             <p className="leading-8 text-justify flex-1">
               Living in One Tower means enjoying access to world-class amenities
               designed to enhance your lifestyle. Residents can unwind in the
@@ -76,7 +76,7 @@ const AboutTheBuilding = () => {
           <h4 className="text-2xl font-semibold border-b-2 border-[#e87726] w-fit pb-3">
             Sustainable Living
           </h4>
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col-reverse md:flex-row gap-8">
             <p className="leading-8 text-justify flex-1">
               We are committed to sustainability and eco-friendly practices. One
               Tower is equipped with energy-efficient systems, solar panels, and
@@ -114,7 +114,7 @@ const AboutTheBuilding = () => {
           <h4 className="text-2xl font-semibold border-b-2 border-[#e87726] w-fit pb-3">
             Unmatched Security
           </h4>
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col-reverse md:flex-row gap-8">
             <p className="leading-8 text-justify flex-1">
               Your safety is our top priority. One Tower features 24/7 security
               personnel, advanced surveillance systems, and secure access
