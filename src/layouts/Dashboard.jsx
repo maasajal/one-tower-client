@@ -1,8 +1,19 @@
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/logo.png";
 import useAdmin from "../hooks/useAdmin";
-import { RiMenuUnfold3Fill } from "react-icons/ri";
+import { RiAdminFill, RiCoupon3Fill, RiMenuUnfold3Fill } from "react-icons/ri";
 import useMember from "../hooks/useMember";
+
+import { FaHistory, FaHome, FaUser, FaWallet } from "react-icons/fa";
+import { FaUsersGear } from "react-icons/fa6";
+import {
+  MdAnnouncement,
+  MdApartment,
+  MdRequestPage,
+  MdOutlineContactPhone,
+} from "react-icons/md";
+import { TfiAnnouncement } from "react-icons/tfi";
+import { FcAbout } from "react-icons/fc";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
@@ -39,52 +50,54 @@ const Dashboard = () => {
                 <>
                   <li>
                     <NavLink to="/dashboard/adminProfile">
-                      Admin Profile
+                      <RiAdminFill className="text-lg" /> Admin Profile
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/dashboard/manageMembers">
-                      Manage Members
+                      <FaUsersGear className="text-lg" /> Manage Members
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/dashboard/makeAnnouncement">
-                      Make Announcement
+                      <MdAnnouncement className="text-lg" /> Make Announcement
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/dashboard/agreementRequests">
-                      Agreement Requests
+                      <MdRequestPage className="text-lg" /> Agreement Requests
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to="/dashboard/manageCoupons">
-                      Manage Coupons
+                      <RiCoupon3Fill className="text-lg" /> Manage Coupons
                     </NavLink>
                   </li>
                 </>
               ) : (
                 <>
                   <li>
-                    <NavLink to="/dashboard/myProfile">My Profile</NavLink>
+                    <NavLink to="/dashboard/myProfile">
+                      <FaUser className="text-lg" /> My Profile
+                    </NavLink>
                   </li>
                   {isMember && (
                     <>
                       <li>
                         <NavLink to="/dashboard/makePayment">
-                          Make Payment
+                          <FaWallet className="text-lg" /> Make Payment
                         </NavLink>
                       </li>
                       <li>
                         <NavLink to="/dashboard/paymentHistory">
-                          Payment History
+                          <FaHistory className="text-lg" /> Payment History
                         </NavLink>
                       </li>
                     </>
                   )}
                   <li>
                     <NavLink to="/dashboard/announcements">
-                      Announcements
+                      <TfiAnnouncement className="text-lg" /> Announcements
                     </NavLink>
                   </li>
                 </>
@@ -93,11 +106,25 @@ const Dashboard = () => {
             <hr />
             <ul className="menu uppercase space-y-4">
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/">
+                  <FaHome className="text-lg" /> Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/apartment">Apartment</NavLink>
+                <NavLink to="/apartment">
+                  <MdApartment className="text-lg" /> Apartment
+                </NavLink>
               </li>
+              <li>
+                <NavLink to="/#about">
+                  <FcAbout className="text-lg" /> About Us
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/#contact">
+                  <MdOutlineContactPhone className="text-lg" /> Contact Us
+                </NavLink>
+              </li>s
             </ul>
           </div>
         </div>
