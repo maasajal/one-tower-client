@@ -14,7 +14,8 @@ const ApartmentCard = ({ room }) => {
   const date = new Date();
   const request_date = date.toLocaleDateString();
   const handleAgreement = async () => {
-    if (user && user.email) {
+    // Some github user has no allow the email.fot that reason allow to agreement by checking their displayName
+    if ((user && user.email) || (user && user.displayName)) {
       const agreementInfo = {
         user_name: user.displayName,
         user_email: user.email,

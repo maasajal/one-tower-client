@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import SectionTitle from "../../components/SectionTitle";
 import useAuth from "../../hooks/useAuth";
 import useAgreement from "../../hooks/useAgreement";
@@ -73,7 +72,9 @@ const MyProfile = () => {
         />
         <div className="space-y-5 w-full">
           <h2 className="text-5xl font-bold">Name: {user.displayName}</h2>
-          <h3 className="text-2xl">Email: {user.email} </h3>
+          <h3 className="text-2xl">
+            Email: {user.email ? user.email : "null!"}
+          </h3>
         </div>
       </div>
       <div className="flex flex-col md:flex-row items-center justify-center gap-5 bg-[#d58c59] text-white shadow-xl">
