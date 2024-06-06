@@ -68,7 +68,7 @@ const MyProfile = () => {
         <img
           src={user.photoURL}
           alt={user.displayName}
-          className="w-2/3 rounded-xl"
+          className="w-full md:w-2/3 rounded-xl"
         />
         <div className="space-y-5 w-full">
           <h2 className="text-5xl font-bold">Name: {user.displayName}</h2>

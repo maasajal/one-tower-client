@@ -18,6 +18,7 @@ import AgreementRequests from "../pages/Dashboard/Admin/AgreementRequests/Agreem
 import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons/ManageCoupons";
 import AdminRoute from "./AdminRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import MemberRoute from "./MemberRoute";
 
 const router = createBrowserRouter([
   {
@@ -66,25 +67,25 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/makePayment",
         element: (
-          <PrivateRoute>
+          <MemberRoute>
             <MakePayment />
-          </PrivateRoute>
+          </MemberRoute>
         ),
       },
       {
         path: "/dashboard/payment",
         element: (
-          <PrivateRoute>
+          <MemberRoute>
             <Payment />
-          </PrivateRoute>
+          </MemberRoute>
         ),
       },
       {
         path: "/dashboard/paymentHistory",
         element: (
-          <PrivateRoute>
+          <MemberRoute>
             <PaymentHistory />
-          </PrivateRoute>
+          </MemberRoute>
         ),
       },
       //   Admin dashboard navs
