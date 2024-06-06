@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAgreement from "../../hooks/useAgreement";
+import useUnAvailable from "../../hooks/useUnAvailable";
 
 const ApartmentCard = ({ room }) => {
   const { _id, image, block_name, floor_no, apartment_no, rent } = room;
@@ -13,6 +14,8 @@ const ApartmentCard = ({ room }) => {
   const [agreement, refetch] = useAgreement();
   const date = new Date();
   const request_date = date.toLocaleDateString();
+  const [unAvailable] = useUnAvailable(); // Load and Find apartment in agreement database
+  const isAvailable = unAvailable.some((available) => available.roomId === _id);
   const handleAgreement = async () => {
     // Some github user has no allow the email.fot that reason allow to agreement by checking their displayName
     if ((user && user.email) || (user && user.displayName)) {
@@ -37,8 +40,16 @@ const ApartmentCard = ({ room }) => {
           timer: 1500,
         });
         return;
-      }
-      if (agreement._id) {
+      } else if (isAvailable) {
+        Swal.fire({
+          position: "top-end",
+          icon: "warning",
+          title: "This is not available!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        return;
+      } else if (agreement._id) {
         Swal.fire({
           position: "top-end",
           icon: "warning",
@@ -85,15 +96,27 @@ const ApartmentCard = ({ room }) => {
         <div className="card-body">
           <h2 className="card-title">
             Block: {block_name}
-            <div className="badge badge-secondary">NEW</div>
+            <div className="badge badge-secondary">
+              {isAvailable ? "Unavailable" : "Available"}
+            </div>
           </h2>
           <p>Floor No: {floor_no}</p>
           <p>Apartment No: {apartment_no}</p>
           <div className="card-actions justify-between items-center">
             <div className="">Rent: ${rent} </div>
-            <Link onClick={handleAgreement} className="btn badge badge-outline">
-              Agreement
-            </Link>
+            <div
+              className="tooltip"
+              data-tip={
+                isAvailable ? "This is already rented" : "Apply for rent"
+              }
+            >
+              <Link
+                onClick={handleAgreement}
+                className="btn badge badge-outline"
+              >
+                Agreement
+              </Link>
+            </div>
           </div>
         </div>
       </div>

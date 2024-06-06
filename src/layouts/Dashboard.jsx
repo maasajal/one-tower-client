@@ -124,7 +124,7 @@ const Dashboard = () => {
                 <NavLink to="/#contact">
                   <MdOutlineContactPhone className="text-lg" /> Contact Us
                 </NavLink>
-              </li>s
+              </li>
             </ul>
           </div>
         </div>
